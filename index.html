@@ -45,10 +45,17 @@ updated by Ephraim Acquah on December 5, 2023 at 11:01 PM
             <label for="y_end">Maximum Row Value: </label>
             <input type="text" id="y_end" name="y_end" minlength="1"><br>
             <div id="ye_slider"></div>
+
+            <button type="button" onclick="saveTable()" id="save_table">Save Table</button>
         </form>
         <h6 id="error"></h6> <!--holds space to give error message if invalid form entries-->
-        <div class="table-responsive table-wrapper-scroll-y table-wrapper-scroll-x" id="table_wrapper"> <!-- makes table scrollable-->
-            <table id="times_table" border="1" class="table table-bordered"></table>
-        </div>
+        <div id="tabs">
+            <ul id="tab_headers">
+            </ul>
+            <div class="table-responsive table-wrapper-scroll-y table-wrapper-scroll-x" id="table_wrapper"> <!-- makes table scrollable-->
+                <table id="times_table" border="1" class="table table-bordered"></table>
+            </div>
+          </div>
+        
     </body>
 </html>

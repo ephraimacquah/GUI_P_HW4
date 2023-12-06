@@ -3,9 +3,9 @@ Name: Ephraim Acquah
 Email: Ephraim_Acquah@student.uml.edu
 */
 
+num_tables = 1;
 
 $().ready(function(){
-
 //makes sure that slider changes when input is given
   $('#x_begin').on('change keyup', function(){
     var val = $(this).val();
@@ -255,7 +255,18 @@ function validateForm(){
     return false;
   }
 
+  $("#error").text("");
   return true;
+}
+
+//this was my naive start to implementing tabs, but i ran out of time before i could finish
+function saveTable(){
+  times_table = document.getElementById("times_table").cloneNode();
+  $("#tabs").append("<div id=\"table_" + num_tables + "\"></div>");
+  $("#tab_headers").append("<li><a href=\"table_" + num_tables + "\">" + num_tables + "</li>");
+  $("#table_" + num_tables).append(times_table);
+  $("#tabs").tabs();
+  num_tables++;
 }
 
 function clearTable() {
