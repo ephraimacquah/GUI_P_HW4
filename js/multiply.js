@@ -5,26 +5,31 @@ Email: Ephraim_Acquah@student.uml.edu
 
 
 $().ready(function(){
+
 //makes sure that slider changes when input is given
   $('#x_begin').on('change keyup', function(){
     var val = $(this).val();
     $( "#xb_slider" ).slider( "value", val );
+    fillTable();
   });
 
   $('#x_end').on('change keyup', function(){
     var val = $(this).val();
     $( "#xe_slider" ).slider( "value", val );
+    fillTable();
   });
   
   $('#y_begin').on('change keyup', function(){
     var val = $(this).val();
     $( "#yb_slider" ).slider( "value", val );
+    fillTable();
   });
   
   $('#y_end').on('change keyup', function(){
     var val = $(this).val();
     $( "#ye_slider" ).slider( "value", val );
-  });
+    fillTable();
+});
 
   //makes sure that input changes when slider is moved
   $("#xb_slider").slider({
@@ -36,6 +41,7 @@ $().ready(function(){
     slide: function( event, ui ) {
       ui.handle = $("#x_begin");
       $("#x_begin").val(ui.value);
+      fillTable();
     }
   });
 
@@ -44,10 +50,11 @@ $().ready(function(){
     max: 500,
     step: 2,
     value: $("#x_end").val(),
+
     slide: function( event, ui ) {
       ui.handle = $("#x_end");
       $("#x_end").val(ui.value);
-      ui.value = $("#x_end");
+      fillTable();
     }
   });
 
@@ -56,13 +63,11 @@ $().ready(function(){
     max: 500,
     step: 2,
     value: $("#y_begin").val(),
-    change: function(event, ui) {
-      ui.handle = $("#yb_slider");
-      ui.value = $("#y_begin").val();
-    },
+
     slide: function( event, ui ) {
       ui.handle = $("#y_begin");
       $("#y_begin").val(ui.value);
+      fillTable();
     }
   });
 
@@ -75,6 +80,7 @@ $().ready(function(){
     slide: function( event, ui ) {
       ui.handle = $("#y_end");
       $("#y_end").val(ui.value);
+      fillTable();
     }
   });
   
@@ -126,6 +132,7 @@ $().ready(function(){
      }
     }
    });
+
 });
 
 function fillTable() {
@@ -165,10 +172,6 @@ function fillTable() {
                 curr_cell.innerHTML = (i + y_min - 1) * (j + x_min - 1);
             }
         }
-        $("#x_begin").val(''); //resets form values
-        $("#x_end").val('');
-        $("#y_begin").val('');
-        $("#y_end").val('');
     }
 }
 
@@ -184,58 +187,71 @@ function validateForm(){
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
     $("#error").text("Please fill out all fields");
+    clearTable();
     return false;  
   }
   
   if (isNaN(xb)) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Column Minimum Value must be a number");
+    $("#error").text("Minimum Column Value must be a number");
+    clearTable();
     return false; 
   } else if (Number(xb) < -500) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Column Minimum Value is too low");
+    $("#error").text("Minimum Column Value is too low");
+    clearTable();
     return false;
   } else if (isNaN(xe)) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").innerHTML = "Column Maximum Value must be a number";
+    $("#error").innerHTML = "Maximum Column Value must be a number";
+    clearTable();
     return false; 
   } else if (Number(xe) > 500) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Column Maximum Value is too high");
+    $("#error").text("Maximum Column Value is too high");
+    clearTable();
     return false;
   } else if (Number(xb) > Number(xe)) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").innerHTML = "Column Maximum Value must be greater than Column Minimum Value";
+    $("#error").innerHTML = "Maximum Column Value must be greater than Minimum Column Value";
+    clearTable();
     return false;
   }
 
   if (isNaN(yb)) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Row Minimum Value must be a number");
+    $("#error").text("Minimum Row Value must be a number");
+    clearTable();
     return false; 
   } else if (Number(yb) < -500) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Row Minimum Value is too low");
+    $("#error").text("Minimum Row Value is too low");
+    clearTable();
+    return false;
   } else if (isNaN(ye)) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Row Maximum Value must be a number");
+    $("#error").text("Maximum Row Value must be a number");
+    clearTable();
     return false; 
   } else if (Number(ye) > 500) {
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Column Maximum Value is too high");
+    $("#error").text("Maximum Row Value is too high");
+    clearTable();
+    return false;
   } else if(Number(yb) > Number(ye)){
     $("#error").css("color", "brown");
     $("#error").css("text-align", "center");
-    $("#error").text("Row Maximum Value must be greater than Row Minimum Value");
+    $("#error").text("Maximum Row Value must be greater than Minimum Row Value");
+    clearTable();
     return false;
   }
 

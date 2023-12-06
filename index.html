@@ -1,13 +1,13 @@
 <!--
 File: index.html
 GUI Assignment: Creating an Interactive Dynamic Table
-File Created: 9/20/2023
+File Created: 12/1/2023
 Page Description: Uses form to prompt user for maximum and minimum row and
 column values and generates a table that displays products of all rows and columns
 Ephraim Acquah, UMass Lowell Computer Science,
 Ephraim_Acquah@student.uml.edu
 Copyright (c) 2023 by Ephraim Acquah. All rights reserved.
-updated by Ephraim Acquah on November 14, 2023 at 11:01 PM
+updated by Ephraim Acquah on December 5, 2023 at 11:01 PM
 -->
 <!DOCTYPE html>
 <html lang = "en">
@@ -45,8 +45,6 @@ updated by Ephraim Acquah on November 14, 2023 at 11:01 PM
             <label for="y_end">Maximum Row Value: </label>
             <input type="text" id="y_end" name="y_end" minlength="1"><br>
             <div id="ye_slider"></div>
-
-            <button type="button" onclick="fillTable()" id="generate_table">Generate Table</button>
         </form>
         <h6 id="error"></h6> <!--holds space to give error message if invalid form entries-->
         <div class="table-responsive table-wrapper-scroll-y table-wrapper-scroll-x" id="table_wrapper"> <!-- makes table scrollable-->
