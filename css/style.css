@@ -1,0 +1,57 @@
+/*
+Name: Ephraim Acquah
+Email: Ephraim_Acquah@student.uml.edu
+*/
+
+/*the css is very simple, the only real significance is the colors 
+that I chose, and that was simply becuase I thought they looked nice*/
+
+h1{
+    text-align: center;
+}
+
+h3{
+    margin: 10% 25% auto 25%;
+    color:brown;
+    text-align: center;
+}
+
+form{
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 5px 5px 5px 5px;
+    border: groove 5px;
+    background-color: antiquewhite;
+    text-align: center;
+}
+label, input{
+    margin-bottom: 10px;
+    color:rgb(65, 62, 64);
+}
+
+#generate_table{
+    font-size: larger;
+    margin: auto 25% auto 25%;
+    margin-top: 10px;
+    color:brown;
+}
+
+table{
+    margin-top: 5%;
+    border: 2px black;
+    text-align: center;
+    padding-left: 5px;
+}
+
+#table_wrapper{
+    margin-left: 25%;
+    margin-right: 25%;
+    max-width: 50%;
+    margin-bottom: 2px;
+    max-height: 300px;
+}
+
+#xb_slider { margin: 10px; }
+#xe_slider { margin: 10px; }
+#yb_slider { margin: 10px; }
+#ye_slider { margin: 10px; }  

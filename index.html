@@ -1,0 +1,56 @@
+<!--
+File: index.html
+GUI Assignment: Creating an Interactive Dynamic Table
+File Created: 9/20/2023
+Page Description: Uses form to prompt user for maximum and minimum row and
+column values and generates a table that displays products of all rows and columns
+Ephraim Acquah, UMass Lowell Computer Science,
+Ephraim_Acquah@student.uml.edu
+Copyright (c) 2023 by Ephraim Acquah. All rights reserved.
+updated by Ephraim Acquah on November 14, 2023 at 11:01 PM
+-->
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+        <script src = "https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="js/multiply.js"></script>
+        <title>Ephraim's Times Table</title>
+    </head>
+    <body>
+        <h1> Ephraim's Times Table</h1>
+        <h3>Please enter ranges for table values</h3>
+        <form id="form"> <!--form to get information for maximum and minimum row and column values-->
+            <label for="x_begin">Minimum Column Value: </label>
+            <input type="text" id="x_begin" name="x_begin" minlength="1"><br>
+            <div id="xb_slider"></div>
+
+            <label for="x_end">Maximum Column Value: </label>
+            <input type="text" id="x_end" name="x_end" minlength="1"><br>
+            <div id="xe_slider"></div>
+
+            <label for="y_begin">Minimum Row Value: </label>
+            <input type="text" id="y_begin" name="y_begin" minlength="1"><br>
+            <div id="yb_slider"></div>
+
+            <label for="y_end">Maximum Row Value: </label>
+            <input type="text" id="y_end" name="y_end" minlength="1"><br>
+            <div id="ye_slider"></div>
+
+            <button type="button" onclick="fillTable()" id="generate_table">Generate Table</button>
+        </form>
+        <h6 id="error"></h6> <!--holds space to give error message if invalid form entries-->
+        <div class="table-responsive table-wrapper-scroll-y table-wrapper-scroll-x" id="table_wrapper"> <!-- makes table scrollable-->
+            <table id="times_table" border="1" class="table table-bordered"></table>
+        </div>
+    </body>
+</html>
